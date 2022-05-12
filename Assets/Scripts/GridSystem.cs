@@ -38,10 +38,10 @@ public class GridSystem : MonoBehaviour
     {
         float temp = grid.GetNode(x, y) / ConnectedNodes(NodeUp(y), NodeDown(y), NodeLeft(x), NodeRight(x));
         grid.SetNode(x, y, temp);
-        if (NodeUp(y)) { nextGrid.SetNode(x, y + 1, temp); }
-        if (NodeDown(y)) { nextGrid.SetNode(x, y - 1, temp); }
-        if (NodeRight(x)) { nextGrid.SetNode(x + 1, y, temp); }
-        if (NodeLeft(x)) { nextGrid.SetNode(x - 1, y, temp); }
+        if (NodeUp(y)) { nextGrid.SetNode(x, y + 1, temp + grid.GetNode(x,y)); }
+        if (NodeDown(y)) { nextGrid.SetNode(x, y - 1, temp + grid.GetNode(x, y)); }
+        if (NodeRight(x)) { nextGrid.SetNode(x + 1, y, temp + grid.GetNode(x, y)); }
+        if (NodeLeft(x)) { nextGrid.SetNode(x - 1, y, temp + grid.GetNode(x, y)); }
     }
     float ConnectedNodes(bool up, bool down, bool left, bool right)
     {
