@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grid
 {
-    private float[,] grid;
+    public float[,] grid;
 
     public Grid(float[,] grid)
     {
@@ -30,13 +30,11 @@ public class Grid
     }
     public void DebugAll()
     {
+        for (int x = 0; x < grid.GetLength(0); x++)
         {
-            for (int x = 0; x < grid.GetLength(0); x++)
+            for (int y = 0; y < grid.GetLength(1); y++)
             {
-                for (int y = 0; y < grid.GetLength(1); y++)
-                {
-                    Debug.Log(grid[x, y]);
-                }
+                Debug.Log(grid[x, y]);
             }
         }
     }
